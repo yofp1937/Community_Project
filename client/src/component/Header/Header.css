@@ -1,0 +1,33 @@
+header {
+    height: auto;
+    text-align: center;
+    padding: 0.5%;
+}
+
+.menu {
+    margin-right: 9%;
+    text-align: right;
+}
+
+.menu a {
+    margin-left: 0.3%;
+    margin-right: 1.2%;
+}
+
+hr {
+    width:80%;
+    text-align: center;
+}
+
+.logo {
+    height: 50%;
+    width:80%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.logo img {
+    width: 100%;    
+    height: auto;
+    display: block;
+}

@@ -1,0 +1,86 @@
+.post {
+    height: 80%;
+    text-align: center;
+    padding: 0.5%;
+    width:100%;
+}
+
+hr {
+    width:80%;
+    text-align: center;
+}
+
+.info{
+    min-height:13%;
+    height:auto;
+}
+
+.title{
+    float: left;
+    margin-left: 5%;
+    font-weight: bold;
+    font-size:15pt;
+}
+
+.date,
+.views{
+    float:right;
+    margin-right: 5%;
+    font-weight: lighter;
+}
+
+.author{
+    float: left;
+    margin-left: 5%;
+    font-weight: bold;
+}
+
+.content{
+    min-height: 50%;
+    height:auto;
+    text-align: left;
+    margin-left: 14%;
+    margin-top:2%;
+    margin-bottom: 2%;
+}
+
+.comments{
+    height:auto;
+}
+
+.input_comment{
+    width:75%;
+}
+
+.submit{
+    margin-left: 1%;
+    height:60px;
+    width:7%;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+
+.comment{
+    margin-bottom: 1%;
+    width:84%;
+    min-height:10%;
+    height:auto;
+}
+.comment hr{
+    width:95%;
+}
+.comment_author{
+    float:left;
+    margin-left: 2%;
+    font-weight: bold;
+    font-size:13pt;
+}
+.comment_date{
+    float:right;
+    margin-right: 2%;
+    font-weight: lighter;
+}
+.comment_content{
+    float:left;
+    margin-left: 2%;
+}

@@ -1,0 +1,43 @@
+.main {
+    height: 80%;
+    text-align: center;
+    padding: 0.5%;
+    width:100%;
+}
+
+hr {
+    width:80%;
+    text-align: center;
+}
+
+.post {
+    height:10%;
+    width:80%;
+    margin: 0 auto;
+}
+
+.post span{
+    margin-top: 1%;
+    margin-left: 0.5%;
+}
+
+.post .num{
+    float:left;
+    margin-left:3%;
+}
+.post .title{
+    float:left;
+    margin-left:3%;
+}
+.post .comments {
+    float:left;
+}
+
+.post .author{
+    float:right;
+    margin-right: 3%;
+}
+.post .views {
+    float:right;
+    margin-right:3%;
+}

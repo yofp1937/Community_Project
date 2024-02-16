@@ -1,0 +1,22 @@
+.login {
+    width:80%;
+    text-align: center;
+    margin: 0 auto;
+    height: auto;
+}
+
+input{
+    width:40%;
+    height:60px;
+    border-radius: 10px;
+    border:1px solid gray;
+    margin-bottom: 3%;
+}
+
+.submit{
+    width:25%;
+    height:60px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    font-size: 13pt;
+}
