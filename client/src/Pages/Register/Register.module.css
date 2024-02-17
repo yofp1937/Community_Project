@@ -35,7 +35,7 @@ input{
     border: 1px solid gray;
 }
 
-.submit{
+.btn_register{
     width:25%;
     height:60px;
     border-radius: 10px;
