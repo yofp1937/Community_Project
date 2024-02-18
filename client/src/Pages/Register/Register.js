@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './Register.module.css';
 import axios from 'axios';
 
@@ -18,6 +19,11 @@ function Register() {
 
   const idInputRef = useRef(null);
   const nickInputRef = useRef(null);
+  
+  const navigate = useNavigate();
+  const goToMain = () => {
+    navigate('/');
+  }
 
   // 회원가입 버튼 클릭시 서버에 요청
   const handleRegister= async () => {
@@ -58,7 +64,7 @@ function Register() {
 
       if(response.data){
         alert("회원가입에 성공했습니다!");
-        window.location.href = '/';
+        goToMain();
       } 
 
     } catch (error) {

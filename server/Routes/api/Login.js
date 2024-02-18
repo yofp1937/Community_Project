@@ -24,6 +24,8 @@ router.post(
             console.log(Match)
             res.redirect("/")
 
+            // 이후 로그인 상태인걸 구현해줘야함 스프링에서 session을 사용해서 로그인 인증을 했던것처럼
+
         } catch (error) {
             console.log("로그인 안댐")
         }

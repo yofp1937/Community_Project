@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './Login.module.css';
 import axios from 'axios';
 
 function Login() {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+  const goToMain = () => {
+    navigate('/');
+  }
 
   const handleLogin = async () => {
     
@@ -26,7 +32,7 @@ function Login() {
       });
 
       if(response.data){
-        window.location.href = '/';
+        goToMain();
       } 
 
     } catch (error) {
