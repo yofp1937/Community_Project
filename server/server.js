@@ -23,6 +23,9 @@ app.use('/api/idcheck', require('./Routes/api/IdCheck'));
 // /api/nickcheck 요청 들어오면 routes 폴더의 nickcheck.js 실행(닉네임 중복확인)
 app.use('/api/nickcheck', require('./Routes/api/NickCheck'));
 
+// /api/login 요청 들어오면 routes 폴더의 login.js 실행(로그인)
+app.use('/api/login', require('./Routes/api/Login'));
+
 // 서버 동작 확인
 app.listen(port, () => {
     console.log(`Server Connected! port:${port}`)

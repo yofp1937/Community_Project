@@ -1,10 +1,11 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef } from 'react';
 import styles from './Register.module.css';
 import axios from 'axios';
 
 function Register() {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
+  const [password2, setPassword2] = useState("");
   const [nickname, setNickname] = useState("");
   
   const [idChecked, setIdChecked] = useState(false);
@@ -22,7 +23,7 @@ function Register() {
   const handleRegister= async () => {
     
     // 정보 하나라도 입력 안돼있으면 return
-    if(id=="" || password=="" || nickname==""){
+    if(id==="" || password==="" || nickname===""){
       alert("정보를 전부 입력해주세요.");
       return;
     }
@@ -96,16 +97,29 @@ function Register() {
   }
 
   // 비밀번호 2개 일치하는지 확인하여 표시
-  const onChangePwd = useCallback((e) => {
-    const password2 = e.target.value;
-    if(password === password2){
+  function onChangePwd1(e) {
+    const newPassword1 = e.target.value;
+    setPassword(newPassword1);
+    if (newPassword1 === password2) {
       setPwdChecked(true);
       setPwdMsg("패스워드가 일치합니다.");
     } else {
       setPwdChecked(false);
-      setPwdMsg("패스워드가 일치하지않습니다.");
+      setPwdMsg("패스워드가 일치하지 않습니다.");
     }
-  }, [password]);
+  }
+  
+  function onChangePwd2(e) {
+    const newPassword2 = e.target.value;
+    setPassword2(newPassword2);
+    if (password === newPassword2) {
+      setPwdChecked(true);
+      setPwdMsg("패스워드가 일치합니다.");
+    } else {
+      setPwdChecked(false);
+      setPwdMsg("패스워드가 일치하지 않습니다.");
+    }
+  }
 
   // 닉네임 중복체크 버튼 클릭시 서버에 요청
   const handleNickCheck = async () => {
@@ -145,8 +159,8 @@ function Register() {
           </div>
 
           <div className={styles.pwd}>
-            <input type="password" placeholder="비밀번호를 입력해주세요" className={styles.input_pwd1} onChange={(e) => setPassword(e.target.value)}/><br/>
-            <input type="password" placeholder="비밀번호를 재입력해주세요" className={styles.input_pwd2} onChange={onChangePwd} /><br/>
+            <input type="password" placeholder="비밀번호를 입력해주세요" className={styles.input_pwd1} onChange={(e) => { setPassword(e.target.value); onChangePwd1(e)}}/><br/>
+            <input type="password" placeholder="비밀번호를 재입력해주세요" className={styles.input_pwd2} onChange={(e) => { setPassword2(e.target.value); onChangePwd2(e)}}/><br/>
             <span className={pwdChecked ? styles.success : styles.error}>{pwdMsg}</span>
           </div>
 
