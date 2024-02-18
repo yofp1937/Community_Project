@@ -32,10 +32,10 @@ router.post(
 
             // db에 User 객체 데이터 저장
             await user.save();
-            res.send("회원가입 성공");
-            console.log("회원가입 성공");
+            console.log(id, "님 회원가입 성공");
+            res.send(true);
         } catch (error) {
-            console.error(error.message);
+            console.error("회원가입 에러: ", error.message);
             res.status(500).send("Server Error");
         }
     }

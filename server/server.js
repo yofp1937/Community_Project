@@ -14,8 +14,14 @@ mongoose.connect('mongodb+srv://yofp1937:1q2w3e4r@study.k9utdkl.mongodb.net/?ret
     .then(() => console.log('MongoDB Connected!'))
     .catch(err => console.log(err))
 
-// API로 요청한 경우 메시지를 보내는 콜백 함수 추가
+// /api/register 요청 들어오면 routes폴더의 register.js 실행(회원가입)
 app.use('/api/register', require('./Routes/api/Register'));
+
+// /api/idcheck 요청 들어오면 routes 폴더의 idcheck.js 실행(아이디 중복확인)
+app.use('/api/idcheck', require('./Routes/api/IdCheck'));
+
+// /api/nickcheck 요청 들어오면 routes 폴더의 nickcheck.js 실행(닉네임 중복확인)
+app.use('/api/nickcheck', require('./Routes/api/NickCheck'));
 
 // 서버 동작 확인
 app.listen(port, () => {

@@ -19,7 +19,8 @@ input{
     border:1px solid gray;
 }
 
-.input_id {
+.input_id,
+.input_nick {
     margin-left: 11%;
 }
 
@@ -41,4 +42,19 @@ input{
     border-radius: 10px;
     border: 1px solid gray;
     font-size: 13pt;
+}
+
+.register span{
+    font-size: 10pt;
+    display: none;
+}
+
+.success{
+    color: #2dc42d;
+    display: block;
+}
+
+.error{
+    color: #e42121;
+    display: block;
 }
