@@ -49,12 +49,12 @@ input{
     display: none;
 }
 
-.success{
+.register span.success{
     color: #2dc42d;
     display: block;
 }
 
-.error{
+.register span.error{
     color: #e42121;
     display: block;
 }
