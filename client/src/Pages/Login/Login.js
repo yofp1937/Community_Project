@@ -24,7 +24,7 @@ function Login() {
         password: password,
       });
 
-      if(response.data.success){
+      if(response.data.success){ // response에 success값이 true로 넘어오면 localStorage에 id, nickname, token 값 생성해서 로그인상태 유지
         localStorage.clear();
         localStorage.setItem('id', response.data.id);
         localStorage.setItem('nickname', response.data.nickname);

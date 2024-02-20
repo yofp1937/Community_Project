@@ -4,7 +4,6 @@ import Community from '../../assets/image/Community.png';
 import axios from 'axios';
 
 function Header() {
-
   function Logout() {
         localStorage.clear();
         window.location.href = '/';
@@ -25,7 +24,7 @@ function Header() {
         <hr/>
       </header>
     );
-  } else {
+  } else { // token 없으면 로그인 회원가입 표시
     return (
       <header>
         <div className="menu">
