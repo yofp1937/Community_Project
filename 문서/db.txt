@@ -1,0 +1,19 @@
+User
+ - #id
+ - password
+ - nickname
+
+Post
+ - #num
+ - title
+ - content
+ - date
+ - author (User - nickname)
+ - views
+ - comments(댓글개수)
+
+Comment
+ - #num
+ - content
+ - author (User - nickname)
+ - date
