@@ -12,6 +12,7 @@ const userSchema = mongoose.Schema({
     },
     nickname:{
         type: String,
+        unique: 1,
         minLength: 2,
         maxLength: 12,
     }
