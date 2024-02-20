@@ -1,17 +1,10 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import styles from './Login.module.css';
 import axios from 'axios';
 
 function Login() {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
-
-  const navigate = useNavigate();
-  const goToMain = () => {
-    navigate('/');
-  }
-
   const handleLogin = async () => {
     
     // 아이디, 패스워드 입력 안돼있으면 return
@@ -31,12 +24,20 @@ function Login() {
         password: password,
       });
 
-      if(response.data){
-        goToMain();
+      if(response.data.success){
+        localStorage.clear();
+        localStorage.setItem('id', response.data.id);
+        localStorage.setItem('nickname', response.data.nickname);
+        localStorage.setItem('token', response.data.token);
+        window.location.href = '/';
       } 
 
     } catch (error) {
-      alert("에러 발생");
+      if (error.response.data.message) {
+        alert("에러: " + error.response.data.message);
+      } else {
+        alert("에러 발생");
+      }
     }
 
   };

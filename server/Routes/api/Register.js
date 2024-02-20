@@ -13,10 +13,10 @@ router.post(
         try {
             let user = await User.findOne({ id:id });
             if (user) { // id가 이미 존재하면 아래 코드 실행
-                console.log("아이디 중복");
+                console.log(id, " 아이디 중복");
                 return res
                 .status(400)
-                .json({ errors: [{ msg: "User already exists" }] });
+                .json({message: "이미 사용중인 아이디입니다."});
             }
             
             // id 존재하지 않으면 새로운 User 객체 만들어서 데이터 삽입
@@ -33,6 +33,7 @@ router.post(
             // db에 User 객체 데이터 저장
             await user.save();
             console.log(id, "님 회원가입 성공");
+            // res.send(true)를 전송해서 goToMain 함수 작동하게함
             res.send(true);
         } catch (error) {
             console.error("회원가입 에러: ", error.message);

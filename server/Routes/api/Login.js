@@ -1,8 +1,11 @@
 const express = require('express');
 const User = require('../../models/User');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const router = express.Router();
+
+const seceretkey = 'sdgl@sqwjodpa#sbn'; // token 생성에 사용하기위해 키보드 막 쳐서 생성한 시크릿키
 
 router.post(
     "/",
@@ -14,20 +17,26 @@ router.post(
             if (!user) { // id가 존재하지 않으면
                 return res
                 .status(400)
-                .json({ loginSucess: false,
-                        message: "아이디가 존재하지 않습니다." });
+                .json({message: "아이디 혹은 비밀번호가 일치하지 않습니다."});
             }
 
             // 입력받은 패스워드와 DB에 입력된 패스워드 비교
             const Match = await bcrypt.compare(password, user.password);
+            console.log(Match);
 
-            console.log(Match)
-            res.redirect("/")
-
-            // 이후 로그인 상태인걸 구현해줘야함 스프링에서 session을 사용해서 로그인 인증을 했던것처럼
+            if(Match){ // 비밀번호가 일치하면
+                const token = jwt.sign({ id: user.id }, seceretkey, {expiresIn: '30m'}); //expiresIn을 30m으로 설정해서 30분이 지나면 토큰이 만료되게함
+                console.log(user.nickname);
+                return res
+                .json({id: id, nickname: user.nickname, token: token, success: true}); // success에 true값을 전송해서 LocalStorage에 값 설정 + goToMain 함수 작동
+            } else { // 비밀번호가 일치하지않으면
+                return res
+                .status(400)
+                .json({message: "아이디 혹은 비밀번호가 일치하지 않습니다."});
+            }
 
         } catch (error) {
-            console.log("로그인 안댐")
+            console.log(error);
         }
     }
 );
