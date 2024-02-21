@@ -7,9 +7,7 @@ const router = express.Router();
 
 const seceretkey = 'sdgl@sqwjodpa#sbn'; // token 생성에 사용하기위해 키보드 막 쳐서 생성한 시크릿키
 
-router.post(
-    "/",
-    async (req, res) => {
+router.post("/", async (req, res) => {
         const { id, password } = req.body;
 
         try {

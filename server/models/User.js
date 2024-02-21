@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const userSchema = mongoose.Schema({
     id:{
         type: String,
-        unique: 1,
+        unique: true,
         trim: true,
         minLength: 4,
     },
@@ -12,7 +12,7 @@ const userSchema = mongoose.Schema({
     },
     nickname:{
         type: String,
-        unique: 1,
+        unique: true,
         minLength: 2,
         maxLength: 12,
     }

@@ -25,6 +25,12 @@ app.use('/api/nickcheck', require('./Routes/User/NickCheck'));
 // /api/login 요청 들어오면 routes 폴더의 login.js 실행(로그인)
 app.use('/api/login', require('./Routes/User/Login'));
 
+// /api/postwrite 요청 들어오면 routes 폴더의 postwrite.js 실행(글 작성)
+app.use('/api/postwrite', require('./Routes/Post/PostWrite'));
+
+// /api/loadpost 요청 들어오면 routes 폴더의 loadpost.js 실행(게시글 불러오기)
+app.use('/api/loadpost', require('./Routes/Post/LoadPost'));
+
 // 서버 동작 확인
 app.listen(port, () => {
     console.log(`Server Connected! port:${port}`)

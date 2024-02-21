@@ -1,0 +1,30 @@
+.postwrite {
+    height: 80%;
+    text-align: center;
+    width:100%;
+}
+
+hr {
+    width:80%;
+    text-align: center;
+}
+
+.input_title {
+    width: 80%;
+    margin-top: 2%;
+}
+
+.input_content {
+    width: 80%;
+    height: 330px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.btn_submit{
+    width:25%;
+    height:60px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    font-size: 13pt;
+}
