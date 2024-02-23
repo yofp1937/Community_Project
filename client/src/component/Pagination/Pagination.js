@@ -1,6 +1,7 @@
 import React from 'react';
-import ('./Pagination.module.css');
+import styles from './Pagination.module.css';
 
+// 페이징 참고 글 - https://www.daleseo.com/react-pagination/
 function Pagination({ total, limit, page, setPage }) {
     const numPages = Math.ceil(total / limit);
 
@@ -12,7 +13,7 @@ function Pagination({ total, limit, page, setPage }) {
     const lastPage = Math.min(groupNumber * 5, numPages);
   
     return (
-      <div className='Pagination'>
+      <div className={styles.Pagination}>
         {/* 첫번째 페이지로 이동하는 << 버튼 */}
         <button onClick={() => setPage(1)} disabled={page === 1}>{"<<"}</button>
 

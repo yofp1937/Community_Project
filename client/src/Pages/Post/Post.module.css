@@ -5,14 +5,26 @@
     width:100%;
 }
 
-hr {
-    width:80%;
-    text-align: center;
+.post input{
+    width:40%;
+    height:60px;
+    border-radius: 10px;
+    border:1px solid gray;
+    margin-bottom: 1%;
+}
+
+.post hr,
+.div_comment hr {
+    width: 70%;
 }
 
 .info{
     min-height:13%;
     height:auto;
+    margin-top: 0.7%;
+    margin-bottom: 1.5%;
+    margin-left: 11.5%;
+    margin-right: 12%;
 }
 
 .title{
@@ -36,11 +48,11 @@ hr {
 }
 
 .content{
-    min-height: 50%;
+    min-height: 40%;
     height:auto;
     text-align: left;
-    margin-left: 14%;
-    margin-top:2%;
+    margin-left: 16%;
+    margin-top:1%;
     margin-bottom: 2%;
 }
 
@@ -60,15 +72,17 @@ hr {
     border: 1px solid gray;
 }
 
-.comment{
+.div_comment{
     margin-bottom: 1%;
-    width:84%;
     min-height:10%;
     height:auto;
 }
-.comment hr{
-    width:95%;
+
+.div_comment span{
+    margin-left: 15.5%;
+    margin-right: 15.5%;
 }
+
 .comment_author{
     float:left;
     margin-left: 2%;
@@ -83,4 +97,8 @@ hr {
 .comment_content{
     float:left;
     margin-left: 2%;
+}
+
+.post button:active{
+    background-color: hwb(0 76% 24%);
 }

@@ -4,14 +4,13 @@
     width:100%;
 }
 
-hr {
-    width:80%;
-    text-align: center;
-}
-
 .input_title {
     width: 80%;
-    margin-top: 2%;
+    margin-top: 0.3%;
+    height:60px;
+    border-radius: 10px;
+    border:1px solid gray;
+    margin-bottom: 1%;
 }
 
 .input_content {
@@ -19,6 +18,9 @@ hr {
     height: 330px;
     margin-top: 2%;
     margin-bottom: 2%;
+    border-radius: 10px;
+    border:1px solid gray;
+    margin-bottom: 1%;
 }
 
 .btn_submit{
@@ -27,4 +29,8 @@ hr {
     border-radius: 10px;
     border: 1px solid gray;
     font-size: 13pt;
+}
+
+.btn_submit:active{
+    background-color: hwb(0 76% 24%);
 }

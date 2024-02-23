@@ -23,8 +23,12 @@ function Post() {
   }, [_id]); // _id 값이 변경될 때마다 useEffect를 다시 실행
 
   const handleSubmit = async () => {
+    if(!localStorage.token){
+      alert("로그인이 필요합니다.");
+      return;
+    }
     // 댓글 내용 없으면 return
-    if(content.trim === ""){
+    if(content.trim() === ""){
       alert("댓글 내용을 작성해주세요");
       return;
     }
@@ -57,7 +61,7 @@ function Post() {
           <span className={styles.title}>{post.title}</span>
           <span className={styles.date}>{post.date}</span>
           <br/><br/><br/>
-          <span className={styles.author}>{post.author && post.author.nickname}</span>
+          <span className={styles.author}>작성자: {post.author && post.author.nickname}</span>
           <span className={styles.views}>조회수 {post.views}</span>
         </div>
 
@@ -71,7 +75,7 @@ function Post() {
 
           {post.comments && post.comments.length > 0 ? (
             post.comments.map(comment => (
-              <div className={styles.comment} key={comment._id}>
+              <div className={styles.div_comment} key={comment._id}>
               <hr/>
                 <span className={styles.comment_author}>{comment.authorNickname}</span>
                 <span className={styles.comment_date}>{comment.date}</span><br/><br/>

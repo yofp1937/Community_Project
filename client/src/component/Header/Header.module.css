@@ -14,11 +14,6 @@ header {
     margin-right: 1.2%;
 }
 
-hr {
-    width:80%;
-    text-align: center;
-}
-
 .logo {
     height: 50%;
     width:80%;
@@ -34,4 +29,5 @@ hr {
 
 .a_postwrite {
     float: left;
+    padding-left: 11%;
 }

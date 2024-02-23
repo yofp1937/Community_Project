@@ -6,7 +6,7 @@
   margin: 16px;
 }
 
-Button {
+.Pagination button {
   border: 1px;
   border-radius: 14px;
   padding: 8px;
@@ -16,21 +16,21 @@ Button {
   font-size: 1rem;
 }
 
-  hover {
+.Pagination button:hover {
     background: rgb(33, 152, 231);
     cursor: pointer;
     transform: translateY(-2px);
   }
 
-  [disabled] {
-    background: hsl(0, 0%, 86%);
-    cursor: revert;
-    transform: revert;
-  }
+.Pagination button[disabled] {
+  background: hsl(0, 0%, 86%);
+  cursor: revert;
+  transform: revert;
+}
 
-  [aria-current] {
-    background: #20b9ff;
-    font-weight: bold;
-    cursor: revert;
-    transform: revert;
-  }
+.Pagination button[aria-current] {
+  background: #20b9ff;
+  font-weight: bold;
+  cursor: revert;
+  transform: revert;
+}

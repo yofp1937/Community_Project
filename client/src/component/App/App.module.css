@@ -5,9 +5,8 @@
     width:100%;
 }
 
-hr {
-    width:80%;
-    text-align: center;
+.main hr{
+    width: 75%;
 }
 
 .post {
@@ -15,6 +14,8 @@ hr {
     width:80%;
     margin: 0 auto;
 }
+
+
 
 .post span{
     margin-top: 1%;
@@ -40,5 +41,5 @@ hr {
 }
 .post .views {
     float:right;
-    margin-right:3%;
+    margin-right: 4%;
 }

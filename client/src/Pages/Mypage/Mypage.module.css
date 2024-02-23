@@ -2,9 +2,43 @@
     height: auto;
     text-align: center;
     padding: 0.5%;
+    width: 100%;
 }
 
-hr {
-    width:80%;
-    text-align: center;
+.mypage hr{
+    width: 75%;
+    margin-top: 1%;
+}
+
+.bar,
+.postlist,
+.commentlist{
+    margin-bottom: 3%;
+}
+
+.nick {
+    padding-left: 15%;
+    margin-bottom: 3%;
+}
+
+.span_nick {
+    float: left;
+}
+
+.change {
+    float: left;
+    margin-left: 1.5%;
+}
+
+.bar {
+    padding-top: 0.5%;
+    text-align: left;
+}
+
+.post {
+    padding-left: 15%;
+}
+
+.bar span {
+    margin-right: 2%;
 }
