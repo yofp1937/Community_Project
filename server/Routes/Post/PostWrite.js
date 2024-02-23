@@ -21,7 +21,8 @@ router.post("/", async (req, res) => {
                 title,
                 content,
                 date,
-                author: user._id,
+                author: user._id, // Post 컬렉션(관계형 DB의 table)의 author 필드(관계형 DB의 column)는 User 컬렉션의 문서(관계형 DB의 record)를 참조하는데
+                                  // 참조하면 해당 문서의 모든값이 표시된다길래 하나의 User 문서를 author 저장하면 되는줄 알았는데 그 문서의 _id만 저장해야한다.
             });
 
             // DB에 Post 데이터 저장

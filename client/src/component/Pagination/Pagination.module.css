@@ -1,0 +1,36 @@
+.Pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  margin: 16px;
+}
+
+Button {
+  border: 1px;
+  border-radius: 14px;
+  padding: 8px;
+  margin: 0;
+  background: rgb(255, 255, 255);
+  color: #000000;
+  font-size: 1rem;
+}
+
+  hover {
+    background: rgb(33, 152, 231);
+    cursor: pointer;
+    transform: translateY(-2px);
+  }
+
+  [disabled] {
+    background: hsl(0, 0%, 86%);
+    cursor: revert;
+    transform: revert;
+  }
+
+  [aria-current] {
+    background: #20b9ff;
+    font-weight: bold;
+    cursor: revert;
+    transform: revert;
+  }

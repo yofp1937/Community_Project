@@ -21,7 +21,7 @@ const postSchema = mongoose.Schema({
         default: 0,
     },
     comments:[{ // 댓글
-        ref: "Comments",
+        ref: "Comment",
         type: mongoose.SchemaTypes.ObjectId,
     }],
 });

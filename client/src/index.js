@@ -19,7 +19,7 @@ root.render(
       <Route path="/login" element={<Login />}/>
       <Route path="/register" element={<Register/>}/>
       <Route path="/mypage" element={<Mypage/>}/>
-      <Route path="/post" element={<Post/>}/>
+      <Route path="/post/:_id" element={<Post/>}/>
       <Route path="/postwrite" element={<PostWrite/>}/>
       <Route path="*" element={<App/>}/>
     </Routes>
