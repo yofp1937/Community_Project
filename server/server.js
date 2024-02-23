@@ -38,6 +38,9 @@ app.use('/api/post/', require('./Routes/Post/LoadPostContent'));
 // /api/commentwrite 요청 들어오면 routes 폴더의 CommentWrite.js 실행(댓글 작성)
 app.use('/api/commentwrite', require('./Routes/Comment/CommentWrite'));
 
+// /api/nickchange 요청 들어오면 routes 폴더의 NickChange.js 실행(닉네임 변경)
+app.use('/api/nickchange', require('./Routes/User/NickChange'));
+
 // 서버 동작 확인
 app.listen(port, () => {
     console.log(`Server Connected! port:${port}`)

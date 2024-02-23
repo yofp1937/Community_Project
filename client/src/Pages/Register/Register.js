@@ -124,7 +124,7 @@ function Register() {
   // 닉네임 중복체크 버튼 클릭시 서버에 요청
   const handleNickCheck = async () => {
 
-    if(nickname.length < 2 && 13 > nickname.length){
+    if(nickname.length < 2 || nickname.length > 12){
       setNickChecked(false);
       setNickMsg("닉네임은 2~12 글자입니다.");
       return; 
