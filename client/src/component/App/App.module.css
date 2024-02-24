@@ -9,37 +9,32 @@
     width: 75%;
 }
 
+
 .post {
     height:10%;
     width:80%;
     margin: 0 auto;
 }
 
+    .post span{
+        margin-top: 1%;
+        margin-left: 0.5%;
+    }
 
+    .post .title{
+        float:left;
+        margin-left:3%;
+    }
+    .post .comments {
+        float:left;
+        color: red;
+    }
 
-.post span{
-    margin-top: 1%;
-    margin-left: 0.5%;
-}
-
-.post .num{
-    float:left;
-    margin-left:3%;
-}
-.post .title{
-    float:left;
-    margin-left:3%;
-}
-.post .comments {
-    float:left;
-    color: red;
-}
-
-.post .author{
-    float:right;
-    margin-right: 3%;
-}
-.post .views {
-    float:right;
-    margin-right: 4%;
-}
+    .post .author{
+        float:right;
+        margin-right: 3%;
+    }
+    .post .views {
+        float:right;
+        margin-right: 4%;
+    }

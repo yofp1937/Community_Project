@@ -42,7 +42,6 @@ function App() {
       </label>
       <hr/>
       <div className={styles.post}>
-        <span className={styles.num}></span>
         <span className={styles.title}>제목</span>
         <span className={styles.comments}>[댓글수]</span>
         <span className={styles.author}>작성자</span>
@@ -50,7 +49,6 @@ function App() {
       </div>
       {posts.slice(offset, offset + limit).map(post => (
         <div className={styles.post} key={post._id}>
-          <span className={styles.num}>{post.num}</span>
           <Link to={`/post/${post._id}`}><span className={styles.title}>{post.title}</span></Link>
           <span className={styles.comments}>[{post.comments.length}]</span>
           <span className={styles.author}>{post.author && post.author.nickname}</span>

@@ -41,6 +41,12 @@ app.use('/api/commentwrite', require('./Routes/Comment/CommentWrite'));
 // /api/nickchange 요청 들어오면 routes 폴더의 NickChange.js 실행(닉네임 변경)
 app.use('/api/nickchange', require('./Routes/User/NickChange'));
 
+// /api/loadmypost 요청 들어오면 rotues 폴더의 LoadMyPost.js 실행(마이페이지 작성글 불러오기)
+app.use('/api/loadmypost', require('./Routes/Post/LoadMyPost'));
+
+// /api/loadmycomment 요청 들어오면 rotues 폴더의 LoadMyComment.js 실행(마이페이지 작성댓글 불러오기)
+app.use('/api/loadmycomment', require('./Routes/Comment/LoadMyComment'));
+
 // 서버 동작 확인
 app.listen(port, () => {
     console.log(`Server Connected! port:${port}`)
