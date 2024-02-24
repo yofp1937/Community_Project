@@ -13,41 +13,36 @@ mongoose.connect('mongodb+srv://yofp1937:1q2w3e4r@study.k9utdkl.mongodb.net/?ret
     .then(() => console.log('MongoDB Connected!'))
     .catch(err => console.log(err));
 
-// /api/register 요청 들어오면 routes폴더의 register.js 실행(회원가입)
-app.use('/api/register', require('./Routes/User/Register'));
 
-// /api/idcheck 요청 들어오면 routes 폴더의 idcheck.js 실행(아이디 중복확인)
-app.use('/api/idcheck', require('./Routes/User/IdCheck'));
+// User 관련 요청
+    // 회원가입
+    app.use('/api/register', require('./Routes/User/Register'));
+    // 아이디 중복확인
+    app.use('/api/idcheck', require('./Routes/User/IdCheck'));
+    // 닉네임 중복확인
+    app.use('/api/nickcheck', require('./Routes/User/NickCheck'));
+    // 로그인
+    app.use('/api/login', require('./Routes/User/Login'));
+    // 닉네임 변경
+    app.use('/api/nickchange', require('./Routes/User/NickChange'));
 
-// /api/nickcheck 요청 들어오면 routes 폴더의 nickcheck.js 실행(닉네임 중복확인)
-app.use('/api/nickcheck', require('./Routes/User/NickCheck'));
+// 게시글 관련 요청
+    // 게시글 작성
+    app.use('/api/postwrite', require('./Routes/Post/PostWrite'));
+    // 게시글 목록 불러오기
+    app.use('/api/loadpost', require('./Routes/Post/LoadPost'));
+    // 게시글 내용 불러오기 + 추가로 :_id값을 받아오기위해 일차적으로 /api/post/까지의 경로만 설정후 LoadPostContent에서 2차 경로로 /:_id 설정해서 params 값을 받아옴
+    app.use('/api/post/', require('./Routes/Post/LoadPostContent'));
+    // 마이페이지 작성글 불러오기
+    app.use('/api/loadmypost', require('./Routes/Post/LoadMyPost'));
 
-// /api/login 요청 들어오면 routes 폴더의 login.js 실행(로그인)
-app.use('/api/login', require('./Routes/User/Login'));
+// 댓글 관련 요청
+    // 댓글 작성
+    app.use('/api/commentwrite', require('./Routes/Comment/CommentWrite'));
+    // 마이페이지 작성댓글 불러오기
+    app.use('/api/loadmycomment', require('./Routes/Comment/LoadMyComment'));
 
-// /api/postwrite 요청 들어오면 routes 폴더의 postwrite.js 실행(글 작성)
-app.use('/api/postwrite', require('./Routes/Post/PostWrite'));
-
-// /api/loadpost 요청 들어오면 routes 폴더의 loadpost.js 실행(게시글 목록 불러오기)
-app.use('/api/loadpost', require('./Routes/Post/LoadPost'));
-
-// /api/post/_id 요청 들어오면 routes 폴더의 loadpostcontent.js 실행(게시글 내용 불러오기)
-// 추가로 :_id값을 받아오기위해 일차적으로 /api/post/까지의 경로만 설정후 LoadPostContent에서 2차 경로로 /:_id로 params 값을 받아옴
-app.use('/api/post/', require('./Routes/Post/LoadPostContent'));
-
-// /api/commentwrite 요청 들어오면 routes 폴더의 CommentWrite.js 실행(댓글 작성)
-app.use('/api/commentwrite', require('./Routes/Comment/CommentWrite'));
-
-// /api/nickchange 요청 들어오면 routes 폴더의 NickChange.js 실행(닉네임 변경)
-app.use('/api/nickchange', require('./Routes/User/NickChange'));
-
-// /api/loadmypost 요청 들어오면 rotues 폴더의 LoadMyPost.js 실행(마이페이지 작성글 불러오기)
-app.use('/api/loadmypost', require('./Routes/Post/LoadMyPost'));
-
-// /api/loadmycomment 요청 들어오면 rotues 폴더의 LoadMyComment.js 실행(마이페이지 작성댓글 불러오기)
-app.use('/api/loadmycomment', require('./Routes/Comment/LoadMyComment'));
-
-// 서버 동작 확인
+// 서버 실행
 app.listen(port, () => {
     console.log(`Server Connected! port:${port}`)
 });
