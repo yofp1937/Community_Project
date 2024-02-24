@@ -49,6 +49,7 @@ function App() {
       </div>
       {posts.slice(offset, offset + limit).map(post => (
         <div className={styles.post} key={post._id}>
+        <hr/>
           <Link to={`/post/${post._id}`}><span className={styles.title}>{post.title}</span></Link>
           <span className={styles.comments}>[{post.comments.length}]</span>
           <span className={styles.author}>{post.author && post.author.nickname}</span>

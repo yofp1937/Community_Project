@@ -19,7 +19,7 @@ function Mypage() {
   // 작성글, 작성댓글, 페이징용
   const [myposts, setMyPosts] = useState([]);
   const [mycomments, setMyComments] = useState([]);
-  const [limit, setLimit] = useState(8); // 표시할 게시글 숫자
+  const [limit] = useState(8); // 표시할 게시글 숫자
   const [page, setPage] = useState(1); // 현재 페이지 번호
   const offset = (page - 1) * limit; // 페이지별 첫 게시물의 위치
 
@@ -146,11 +146,15 @@ function Mypage() {
 
         {togglePost && (
           <>
+          {/*
+          <div className={styles.postlist}>
             <span className={styles.span_title}>제목</span>
             <span className={styles.span_comments}>[댓글수]</span>
             <span className={styles.span_author}>작성자</span>
             <span className={styles.span_views}>조회수</span>
-            <br/><br/><br/>
+          </div>
+          <hr/>
+          */}
             {myposts.slice(offset, offset + limit).map(post => (
               <div className={styles.postlist} key={post._id}>
                 <Link className={styles.Link} to={`/post/${post._id}`}><span className={styles.span_title}>{post.title}</span></Link>
@@ -159,7 +163,6 @@ function Mypage() {
                 <span className={styles.span_views}>{post.views}</span>
               </div>
             ))}
-          <br/>
           <hr/>
           <Pagination total={myposts.length} limit={limit} page={page} setPage={setPage}/>
           </>
@@ -175,7 +178,7 @@ function Mypage() {
                   <span className={styles.span_posttitle}>{comment.postnum && comment.postnum.title}</span>
                   <span className={styles.span_postcomment}>[{comment.postnum && comment.postnum.comments.length}]</span>
                 </Link>
-              <hr/>
+                <hr/>
               </div>
             ))}
           <Pagination total={mycomments.length} limit={limit} page={page} setPage={setPage}/>

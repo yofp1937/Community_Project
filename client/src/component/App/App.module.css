@@ -17,7 +17,7 @@
 }
 
     .post span{
-        margin-top: 1%;
+        margin-top: 1.5%;
         margin-left: 0.5%;
     }
 
@@ -37,4 +37,8 @@
     .post .views {
         float:right;
         margin-right: 4%;
+    }
+
+    .post hr{
+        width: 94%;
     }
