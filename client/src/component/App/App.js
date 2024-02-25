@@ -3,6 +3,7 @@ import styles from './App.module.css';
 import axios from 'axios';
 import Pagination from "../Pagination/Pagination";
 import { Link } from 'react-router-dom';
+import picture from '../../assets/image/picture.png';
 
 // 페이징 참고 글 - https://www.daleseo.com/react-pagination/
 function App() {
@@ -53,6 +54,7 @@ function App() {
         <hr/>
           <Link to={`/post/${post._id}`}><span className={styles.title}>{post.title}</span></Link>
           <span className={styles.comments}>[{post.comments.length}]</span>
+          {post.img.length > 0 && <img src={picture} alt="picture" className={styles.picture} />}
           <span className={styles.author}>{post.author && post.author.nickname}</span>
           <span className={styles.views}>{post.views}</span>
         </div>

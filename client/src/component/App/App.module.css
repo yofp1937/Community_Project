@@ -30,6 +30,10 @@
         float:left;
         color: red;
     }
+    .post .picture{
+        float: left;
+        margin-top: 1%;
+    }
 
     .post .author{
         float:right;
