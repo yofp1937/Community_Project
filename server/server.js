@@ -1,18 +1,15 @@
 const express = require('express');
 const cors = require('cors');
+const ConnectMongoDB = require('./utils/ConnectDB');
 const port = 8000
-const mongoose = require('mongoose')
 
 // CORS 사용
 const app = express();
 app.use(cors());
 app.use(express.json({ extended: false }));
 
-// MongoDB 연결
-mongoose.connect('mongodb+srv://yofp1937:1q2w3e4r@study.k9utdkl.mongodb.net/?retryWrites=true&w=majority')
-    .then(() => console.log('MongoDB Connected!'))
-    .catch(err => console.log(err));
-
+// utils/ConnectDB의 ConnectMongoDB 함수 실행
+ConnectMongoDB();
 
 // User 관련 요청
     // 회원가입

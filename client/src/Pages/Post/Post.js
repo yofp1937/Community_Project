@@ -61,12 +61,16 @@ function Post() {
           <span className={styles.title}>{post.title}</span>
           <span className={styles.date}>{post.date}</span>
           <br/><br/><br/>
-          <span className={styles.author}>작성자: {post.author && post.author.nickname}</span>
+          <span className={styles.author}>작성자: {post.author && post.author.nickname}</span><br/>
           <span className={styles.views}>조회수 {post.views}</span>
         </div>
 
         <hr/>
-        <div className={styles.content}>{post.content}</div>
+        <div className={styles.content}>{post.content}<br/>
+        {post.img && post.img.map((image, index) => (
+            <img key={index} src={`data:image;base64,${image}`} alt={`Image_${index}`} className={styles.img} />
+        ))}
+        </div>
         <hr/>
 
         <div className={styles.comments}>

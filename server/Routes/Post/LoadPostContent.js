@@ -1,5 +1,6 @@
 const express = require('express');
 const Post = require('../../models/Post');
+const fs = require('fs'); // base64 디코딩을 하기위해 추가
 
 const router = express.Router();
 

@@ -23,6 +23,12 @@
     margin-bottom: 1%;
 }
 
+.input_image {
+    float: left;
+    margin-left: 10%;
+    margin-bottom: 1.2%;
+}
+
 .btn_submit{
     width:25%;
     height:60px;

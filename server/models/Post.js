@@ -24,6 +24,9 @@ const postSchema = mongoose.Schema({
         ref: "Comment",
         type: mongoose.SchemaTypes.ObjectId,
     }],
+    img:[{
+        type: String,
+    }],
 });
 
 

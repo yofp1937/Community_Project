@@ -48,12 +48,14 @@
 }
 
 .content{
+    width: 68%;
     min-height: 40%;
     height:auto;
     text-align: left;
     margin-left: 16%;
     margin-top:1%;
     margin-bottom: 2%;
+    overflow: auto;
 }
 
 .comments{
@@ -101,4 +103,12 @@
 
 .post button:active{
     background-color: hwb(0 76% 24%);
+}
+
+.img {
+    width: auto;
+    max-width: 500px;
+    height: auto;
+    max-height: 300px;
+    margin-right: 3%;
 }
