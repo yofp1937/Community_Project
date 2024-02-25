@@ -22,18 +22,19 @@ router.post("/", async (req, res) => {
             const Match = await bcrypt.compare(password, user.password);
 
             if(Match){ // 비밀번호가 일치하면
-                const token = jwt.sign({ id: user.id }, seceretkey, {expiresIn: '30m'}); //expiresIn을 30m으로 설정해서 30분이 지나면 토큰이 만료되게함
-                console.log(id, "님 로그인");
+                const token = jwt.sign({ id: user.id }, seceretkey); // 랜덤한 토큰값 생성
+                //console.log(id, "님 로그인");
                 return res
-                .json({id: id, nickname: user.nickname, token: token, success: true}); // success에 true값을 전송해서 LocalStorage에 값 설정
+                .status(200) // 입력받은 password가 db의 값과 일치하면 status 200을 전송
+                .json({id: id, nickname: user.nickname, token: token});
             } else { // 비밀번호가 일치하지않으면
                 return res
                 .status(400)
-                .json({message: "아이디 혹은 비밀번호가 일치하지 않습니다."});
+                .send("아이디 혹은 비밀번호가 일치하지 않습니다.");
             }
 
         } catch (error) {
-            console.log(error);
+            return res.send(error);
         }
     }
 );

@@ -105,8 +105,8 @@
 
 /* 작성글 div */
 .postlist{
-    margin-top: 0.8%;
-    margin-bottom: 3%;
+    height: auto;
+    margin-top: 1%;
 }
     .span_title{
         float:left;

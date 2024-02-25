@@ -37,12 +37,12 @@ router.post("/", async (req, res) => {
 
             // 이후 post의 comments 필드값을 추가해줘야함
             post.comments.push(comment._id);
+            post.views -= 1; // 댓글 작성하면 화면 새로고침해서 조회수가 추가로 1 올라가는데 이를 방지하기위해 -1을 적용
             await post.save();
 
-            console.log(author, "님 댓글 달기 성공");
-            res.send(true);
+            return res.send(true); // send(true)를 보내면 status(200)이 보내진것과 동일
         } catch (error) {
-            console.log(error);
+            return res.send(error);
         }
     }
 );

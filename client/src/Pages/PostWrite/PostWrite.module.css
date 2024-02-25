@@ -1,42 +1,43 @@
+/* postwrite.js 최상위 태그 */
 .postwrite {
     height: 80%;
     text-align: center;
     width:100%;
 }
-
-.input_title {
-    width: 80%;
-    margin-top: 0.3%;
-    height:60px;
-    border-radius: 10px;
-    border:1px solid gray;
-    margin-bottom: 1%;
-}
-
-.input_content {
-    width: 80%;
-    height: 330px;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    border-radius: 10px;
-    border:1px solid gray;
-    margin-bottom: 1%;
-}
-
-.input_image {
-    float: left;
-    margin-left: 10%;
-    margin-bottom: 1.2%;
-}
-
-.btn_submit{
-    width:25%;
-    height:60px;
-    border-radius: 10px;
-    border: 1px solid gray;
-    font-size: 13pt;
-}
-
-.btn_submit:active{
-    background-color: hwb(0 76% 24%);
-}
+    /* 제목 입력칸 */
+    .input_title {
+        width: 80%;
+        margin-top: 0.3%;
+        height:60px;
+        border-radius: 10px;
+        border:1px solid gray;
+        margin-bottom: 1%;
+    }
+    /* 내용 입력칸 */
+    .input_content {
+        width: 80%;
+        height: 330px;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        border-radius: 10px;
+        border:1px solid gray;
+        margin-bottom: 1%;
+    }
+    /* 이미지 선택 */
+    .input_image {
+        float: left;
+        margin-left: 10%;
+        margin-bottom: 1.2%;
+    }
+    /* 글작성 버튼 */
+    .btn_submit{
+        width:25%;
+        height:60px;
+        border-radius: 10px;
+        border: 1px solid gray;
+        font-size: 13pt;
+    }
+    /* 버튼 눌렀을때 */
+    .btn_submit:active{
+        background-color: hwb(0 76% 24%);
+    }

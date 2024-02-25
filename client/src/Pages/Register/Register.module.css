@@ -1,14 +1,15 @@
+/* register.js 최상위 태그 */
 .register {
     width: 80%;
     margin: 0 auto;
     height: auto;
     padding: 0.5%;
 }
-
+/* register.js내의 모든 div 태그 */
 .register div {
     margin-bottom: 2%;
 }
-
+/* register.js내의 모든 input 태그 */
 .register input{
     width:40%;
     height:60px;
@@ -16,47 +17,49 @@
     border:1px solid gray;
     margin-bottom: 1%;
 }
+    /* 아이디, 닉네임 입력창 */
+    .input_id,
+    .input_nick {
+        margin-left: 11%;
+    }
+    /* 비밀번호 입력창 위에있는거 */
+    .input_pwd1{
+        margin-bottom: 1.5%;
+    }
 
-.input_id,
-.input_nick {
-    margin-left: 11%;
-}
+    /* 중복 체크 버튼(아이디, 닉네임) */
+    .btn_check{
+        width:10%;
+        height:60px;
+        margin-left: 1.5%;
+        border-radius: 10px;
+        border: 1px solid gray;
+    }
+    /* 회원가입 버튼 */
+    .btn_register{
+        width:25%;
+        height:60px;
+        border-radius: 10px;
+        border: 1px solid gray;
+        font-size: 13pt;
+    }
+        /* 모든 버튼 클릭시 */
+        .register button:active{
+            background-color: hwb(0 76% 24%);
+        }
 
-.input_pwd1{
-    margin-bottom: 1.5%;
-}
-
-.btn_check{
-    width:10%;
-    height:60px;
-    margin-left: 1.5%;
-    border-radius: 10px;
-    border: 1px solid gray;
-}
-
-.btn_register{
-    width:25%;
-    height:60px;
-    border-radius: 10px;
-    border: 1px solid gray;
-    font-size: 13pt;
-}
-
-.register button:active{
-    background-color: hwb(0 76% 24%);
-}
-
+/* register.js내 모든 span 태그 */
 .register span{
     font-size: 10pt;
     display: none;
 }
-
-.register span.success{
-    color: #2dc42d;
-    display: block;
-}
-
-.register span.error{
-    color: #e42121;
-    display: block;
-}
+    /* 아이디, 닉네임 사용 가능일때 + 패스워드 일치할때 */
+    .register span.success{
+        color: #2dc42d;
+        display: block;
+    }
+    /* 아이디, 닉네임 사용 불가능일때 + 패스워드 불일치할때 */
+    .register span.error{
+        color: #e42121;
+        display: block;
+    }

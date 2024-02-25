@@ -11,18 +11,19 @@ function App() {
   const [page, setPage] = useState(1); // 현재 페이지 번호
   const offset = (page - 1) * limit; // 페이지별 첫 게시물의 위치
 
+  // 메인화면 불러올때마다 게시글 표시하기
   useEffect(() => {
     async function LoadPost(){
       try {
         const response = await axios.get('/api/loadpost');
-        if(response.status === 200){ // true 넘어오면 게시글 배열로 저장
+        if(response.status === 200){
           setPosts(response.data);
         }
       } catch(error) {
         console.error('게시글 로딩 중 오류가 발생했습니다.', error.message);
       }
     }
-    LoadPost(); // 게시글 페이지에 로딩
+    LoadPost(); // 게시글 화면에 렌더링
   }, []);
 
   return (

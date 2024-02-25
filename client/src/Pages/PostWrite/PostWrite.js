@@ -28,22 +28,11 @@ function PostWrite() {
             return;
         }
 
-        // 이미지 파일 확장자 확인후 return
-        if(img.length > 0){
-          for (let i = 0; i < img.length; i++) {
-            const fileExtension = img[i].name.split('.').pop().toLowerCase();
-            if (!['jpg', 'jpeg', 'png'].includes(fileExtension)) {
-                alert("이미지 파일은 jpg, jpeg, png 형식이어야 합니다.");
-                return;
-            }
-          }
-        }
-
         // 조건 만족하면 서버로 axios 요청
         try {
           // 이미지는 FormData로 전송해야하기때문에 FormData 객체 생성
           const formData = new FormData();
-          // 폼에 텍스트 정보 추가
+          // 폼에 JSON타입 텍스트 정보 추가
           formData.append(
             'data',
             JSON.stringify({
@@ -64,13 +53,13 @@ function PostWrite() {
             }
           });
     
-          if(response){ // ture 넘어오면 글 작성 완료되고 메인으로 이동
+          if(response.status === 200){ // status === 200을 조건으로 걸면 동작안하길래 여긴 send(true)로 처리
             window.location.href = '/';
           } 
     
         } catch (error) {
-          if (error.response.data.message) {
-            alert("에러: " + error.response.data.message);
+          if (error.response.data) {
+            alert("에러: " + error.response.data);
           } else {
             alert("에러 발생");
           }

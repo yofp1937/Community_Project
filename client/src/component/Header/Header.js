@@ -3,12 +3,13 @@ import styles from './Header.module.css';
 import Community from '../../assets/image/Community.png';
 
 function Header() {
+  // 로그아웃 실행하는 함수
   function Logout() {
         localStorage.clear();
         window.location.href = '/';
   };
     return (
-      <header>
+      <header className={styles.header}>
         {localStorage.token ? (
           <div className={styles.menu}>
             <a href="/postwrite" className={styles.a_postwrite}>글쓰기</a>

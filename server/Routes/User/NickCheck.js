@@ -9,13 +9,12 @@ router.post('/', async (req, res) => {
   try {
     let user = await User.findOne({ nickname: nick });
     if (user) {
-      res.json({ exists: true }); // 이미 존재하는 닉네임일 경우
+      return res.json({ exists: true }); // 이미 존재하는 닉네임일 경우
     } else {
-      res.json({ exists: false }); // 사용 가능한 닉네임일 경우
+      return res.json({ exists: false }); // 사용 가능한 닉네임일 경우
     }
   } catch (error) {
-    console.error("중복 체크 에러: ", error);
-    res.status(500).send("Server Error");
+    return res.send(error);
   }
 });
 

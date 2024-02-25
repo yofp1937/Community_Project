@@ -1,3 +1,4 @@
+/* App.js의 최상위 태그 */
 .main {
     height: 80%;
     text-align: center;
@@ -9,13 +10,13 @@
     width: 75%;
 }
 
-
+/* 게시글 하나를 감싸는 div */
 .post {
     height:10%;
     width:80%;
     margin: 0 auto;
 }
-
+    /* .post 내부의 태그들 */
     .post span{
         margin-top: 1.5%;
         margin-left: 0.5%;

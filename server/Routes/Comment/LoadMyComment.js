@@ -19,9 +19,9 @@ router.post("/", async (req, res) => {
                 select: 'title comments',
             });
             
-            res.status(200).json(comments);
+            return res.status(200).json(comments);
         } catch (error) {
-            console.log(error);
+            return res.send(error);
         }
     }
 );

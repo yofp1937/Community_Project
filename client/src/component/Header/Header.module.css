@@ -1,19 +1,28 @@
-header {
+/* Header.js의 최상위 태그 */
+.header {
     height: auto;
     text-align: center;
     padding: 0.5%;
 }
 
+/* 로고 위쪽의 글쓰기, 로그인, 회원가입, 마이페이지 이동 기능 넣어둔 diiv */
 .menu {
+    width: 81%;
     margin-right: 9%;
     text-align: right;
 }
 
-.menu a {
-    margin-left: 0.3%;
-    margin-right: 1.2%;
-}
+    .menu a {
+        margin-left: 0.3%;
+        margin-right: 1.2%;
+    }
 
+    /* .menu 내부의 글쓰기 버튼 */
+    .a_postwrite {
+        float: left;
+    }
+
+/* 로고 감싸는 div */
 .logo {
     height: 50%;
     width:80%;
@@ -21,13 +30,8 @@ header {
     overflow: hidden;
 }
 
-.logo img {
-    width: 100%;    
-    height: auto;
-    display: block;
-}
-
-.a_postwrite {
-    float: left;
-    padding-left: 11%;
-}
+    .logo img {
+        width: 100%;    
+        height: auto;
+        display: block;
+    }

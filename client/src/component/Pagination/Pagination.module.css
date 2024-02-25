@@ -1,3 +1,4 @@
+/* Pagination.js의 최상단 태그 */
 .Pagination {
   display: flex;
   justify-content: center;
@@ -5,32 +6,32 @@
   gap: 4px;
   margin: 16px;
 }
-
-.Pagination button {
-  border: 1px;
-  border-radius: 14px;
-  padding: 8px;
-  margin: 0;
-  background: rgb(255, 255, 255);
-  color: #000000;
-  font-size: 1rem;
-}
-
-.Pagination button:hover {
-    background: rgb(33, 152, 231);
-    cursor: pointer;
-    transform: translateY(-2px);
+  /* 페이지 이동하는 버튼들 */
+  .Pagination button {
+    border: 1px;
+    border-radius: 14px;
+    padding: 8px;
+    margin: 0;
+    background: rgb(255, 255, 255);
+    color: #000000;
+    font-size: 1rem;
   }
-
-.Pagination button[disabled] {
-  background: hsl(0, 0%, 86%);
-  cursor: revert;
-  transform: revert;
-}
-
-.Pagination button[aria-current] {
-  background: #20b9ff;
-  font-weight: bold;
-  cursor: revert;
-  transform: revert;
-}
+  /* 마우스를 버튼 위에 올렸을때 */
+  .Pagination button:hover {
+      background: rgb(33, 152, 231);
+      cursor: pointer;
+      transform: translateY(-2px);
+    }
+  /* 버튼이 비활성화 상태일때 */
+  .Pagination button[disabled] {
+    background: hsl(0, 0%, 86%);
+    cursor: revert;
+    transform: revert;
+  }
+  /* 현재 선택된 버튼(현재 접속중인 페이지의 번호를 파란색으로) */
+  .Pagination button[aria-current] {
+    background: #20b9ff;
+    font-weight: bold;
+    cursor: revert;
+    transform: revert;
+  }

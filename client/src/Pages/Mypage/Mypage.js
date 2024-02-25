@@ -11,10 +11,10 @@ function Mypage() {
 
   // 닉네임 중복체크용
   const [nickname, setNickname] = useState("");
-  const [changeNick, setChangeNick] = useState(false);
-  const [nickChecked, setNickChecked] = useState(false);
-  const [nickMsg, setNickMsg] = useState("");
-  const nickInputRef = useRef(null);
+  const [changeNick, setChangeNick] = useState(false); // changeNick이 true가되면 닉네임 변경용 태그들이 화면에 렌더링됨
+  const [nickChecked, setNickChecked] = useState(false); // nickChecked가 true가 되야 닉네임 변경 진행 가능(중복검사)
+  const [nickMsg, setNickMsg] = useState(""); // 중복여부 메세지 표시용
+  const nickInputRef = useRef(null); // 중복검사 통과하면 더이상 변경 못하게 block을 주기위해 input태그와 연결돼있음
 
   // 작성글, 작성댓글, 페이징용
   const [myposts, setMyPosts] = useState([]);
@@ -25,7 +25,7 @@ function Mypage() {
 
   // 닉네임 변경 클릭시 실행
   const handleNickEdit = () => {
-    setChangeNick(true);
+    setChangeNick(true); // 닉네임 변경을 위한 태그들 화면에 생성
   };
 
   // 닉네임 변경 완료 클릭시 실행
@@ -44,24 +44,29 @@ function Mypage() {
         changenick: nickname,
       });
 
-      if(response){
+      // 변경 성공하면 localStorage의 닉네임값도 변경후 새로고침해서 화면 로고 위 닉네임 표시 변경
+      if(response.status === 200){
         localStorage.removeItem('nickname');
         localStorage.setItem('nickname', nickname);
         window.location.reload();
       }
 
     } catch (error) {
-      alert("에러 발생: ", error.message);
+      if (error.response.data) {
+        alert("에러: " + error.response.data);
+      } else {
+        alert("에러 발생");
+      }
     }
 
-    setChangeNick(false);
+    setChangeNick(false); // 닉네임 변경 끝나면 태그들 화면에서 없앰
   };
 
   // 닉네임 중복체크 클릭시 실행
   const handleNickCheck = async() => {
     // 2~12글자인지 체크
     if(nickname.length < 2 || nickname.length > 12){
-      setNickChecked(false);
+      setNickChecked(false); // 중복체크 상태 false로 변경
       setNickMsg("닉네임은 2~12 글자입니다.");
       return; 
     }
@@ -72,16 +77,20 @@ function Mypage() {
       });
 
       if(response.data.exists) {
-        setNickChecked(false);
+        setNickChecked(false); // 중복체크 상태 false로 변경
         setNickMsg("이미 사용중인 닉네임 입니다.");
       } else {
-        setNickChecked(true);
+        setNickChecked(true); // 중복체크 상태 true로 변경
         nickInputRef.current.disabled = true;
         setNickMsg("사용 가능한 닉네임입니다.");
       }
 
     } catch (error) {
-      alert("에러 발생: ", error.message);
+      if (error.response.data) {
+        alert("에러: " + error.response.data);
+      } else {
+        alert("에러 발생");
+      }
     }
   }
 
@@ -91,11 +100,15 @@ function Mypage() {
         const response = await axios.post('/api/loadmypost', {
           id: localStorage.getItem("id"),
         });
-        if(response.status === 200){ // true 넘어오면 게시글 배열로 저장
+        if(response.status === 200){ // true 넘어오면 게시글 myposts에 저장
           setMyPosts(response.data);
         }
     } catch(error) {
-        console.error('게시글 로딩 중 오류가 발생했습니다.', error.message);
+      if (error.response.data) {
+        alert("에러: " + error.response.data);
+      } else {
+        alert("에러 발생");
+      }
     }
   }
 
@@ -105,21 +118,21 @@ function Mypage() {
       const response = await axios.post('/api/loadmycomment', {
         id: localStorage.getItem("id"),
       });
-      if(response.status === 200){ // true 넘어오면 게시글 배열로 저장
+      if(response.status === 200){ // true 넘어오면 댓글 mycomments에 저장
         setMyComments(response.data);
       }
   } catch(error) {
-      console.error('게시글 로딩 중 오류가 발생했습니다.', error.message);
+    if (error.response.data) {
+      alert("에러: " + error.response.data);
+    } else {
+      alert("에러 발생");
+    }
   }
   }
 
   useEffect(() => {
     handleSetPost(); // 마이페이지 들어오면 작성글 로딩
   }, []);
-
-  // 3.작성글 누르면 div .postlist에 내가 작성한 게시글 리스트 불러와야함
-  //  +작성댓글 누르면 div .commentlist에 내가 작성한 댓글 리스트 불러와야함
-  // 4.작성글, 작성댓글로 불러온것들 제목 클릭하면 해당 게시글로 이동하는 기능 만들어야함
 
   return (
     <div className={styles.mypage}>
@@ -146,42 +159,50 @@ function Mypage() {
 
         {togglePost && (
           <>
-          {/*
-          <div className={styles.postlist}>
-            <span className={styles.span_title}>제목</span>
-            <span className={styles.span_comments}>[댓글수]</span>
-            <span className={styles.span_author}>작성자</span>
-            <span className={styles.span_views}>조회수</span>
-          </div>
-          <hr/>
-          */}
-            {myposts.slice(offset, offset + limit).map(post => (
-              <div className={styles.postlist} key={post._id}>
-                <Link className={styles.Link} to={`/post/${post._id}`}><span className={styles.span_title}>{post.title}</span></Link>
-                <span className={styles.span_comments}>[{post.comments.length}]</span>
-                <span className={styles.span_author}>{post.author && post.author.nickname}</span>
-                <span className={styles.span_views}>{post.views}</span>
-              </div>
-            ))}
-          <hr/>
-          <Pagination total={myposts.length} limit={limit} page={page} setPage={setPage}/>
+            <div className={styles.postlist}>
+              <span className={styles.span_title}>제목</span>
+              <span className={styles.span_comments}>[댓글수]</span>
+              <span className={styles.span_author}>작성자</span>
+              <span className={styles.span_views}>조회수</span>
+            </div><br/>
+            <hr/>
+            {myposts.length > 0 ? (
+              myposts.slice(offset, offset + limit).map(post => (
+                <div className={styles.postlist} key={post._id}>
+                  <Link className={styles.Link} to={`/post/${post._id}`}>
+                    <span className={styles.span_title}>{post.title}</span>
+                    <span className={styles.span_comments}>[{post.comments.length}]</span>
+                    <span className={styles.span_author}>{post.author && post.author.nickname}</span>
+                    <span className={styles.span_views}>{post.views}</span><br/>
+                  </Link>
+                  <hr/>
+                </div>
+              ))
+            ) : (
+              <p>작성한 게시글이 없습니다. 게시글을 작성해보세요!</p>
+            )}
+            <Pagination total={myposts.length} limit={limit} page={page} setPage={setPage}/>
           </>
         )}
 
         {toggleComment && (
-            <>
-            {mycomments.slice(offset, offset + limit).map(comment => (
-              <div className={styles.commentlist} key={comment._id}>
-                <Link className={styles.Link} to={`/post/${comment.postnum && comment.postnum._id}`}>
-                  <span className={styles.span_content}>{comment.content}</span><br/>
-                  <span className={styles.span_date}>{comment.date}</span><br/><br/>
-                  <span className={styles.span_posttitle}>{comment.postnum && comment.postnum.title}</span>
-                  <span className={styles.span_postcomment}>[{comment.postnum && comment.postnum.comments.length}]</span>
-                </Link>
-                <hr/>
-              </div>
-            ))}
-          <Pagination total={mycomments.length} limit={limit} page={page} setPage={setPage}/>
+          <>
+            {mycomments.length > 0 ? (
+              mycomments.slice(offset, offset + limit).map(comment => (
+                <div className={styles.commentlist} key={comment._id}>
+                  <Link className={styles.Link} to={`/post/${comment.postnum && comment.postnum._id}`}>
+                    <span className={styles.span_content}>{comment.content}</span><br/>
+                    <span className={styles.span_date}>{comment.date}</span><br/><br/>
+                    <span className={styles.span_posttitle}>{comment.postnum && comment.postnum.title}</span>
+                    <span className={styles.span_postcomment}>[{comment.postnum && comment.postnum.comments.length}]</span>
+                  </Link>
+                  <hr/>
+                </div>
+              ))
+            ) : (
+              <p>작성한 댓글이 없습니다. 댓글을 작성해보세요!</p>
+            )}
+            <Pagination total={mycomments.length} limit={limit} page={page} setPage={setPage}/>
           </>
         )}
 

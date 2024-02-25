@@ -1,26 +1,28 @@
+/* Login.js 최상위 태그 */
 .login {
     width:80%;
     text-align: center;
     margin: 0 auto;
     height: auto;
 }
+    /* 페이지내 input 태그 전체 설정 */
+    .login input{
+        width:40%;
+        height:60px;
+        border-radius: 10px;
+        border:1px solid gray;
+        margin-bottom: 3%;
+    }
 
-.login input{
-    width:40%;
-    height:60px;
-    border-radius: 10px;
-    border:1px solid gray;
-    margin-bottom: 3%;
-}
-
-.submit{
-    width:25%;
-    height:60px;
-    border-radius: 10px;
-    border: 1px solid gray;
-    font-size: 13pt;
-}
-
-.login button:active{
-    background-color: hwb(0 76% 24%);
-}
+    /* 로그인 버튼 */
+    .login button{
+        width:25%;
+        height:60px;
+        border-radius: 10px;
+        border: 1px solid gray;
+        font-size: 13pt;
+    }
+        /* 버튼 클릭시 색깔 변경 */
+        .login button:active{
+            background-color: hwb(0 76% 24%);
+        }

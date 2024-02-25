@@ -2,10 +2,12 @@ import React from 'react';
 import styles from './Pagination.module.css';
 
 // 페이징 참고 글 - https://www.daleseo.com/react-pagination/
+// total = 전체 페이지 수, limit = 한 페이지에 표시할 게시글 숫자, page = 현재 페이지 번호, setPage = 이동할 페이지 번호
 function Pagination({ total, limit, page, setPage }) {
     const numPages = Math.ceil(total / limit);
 
-    // 한번에 5개의 페이지를 표시하게 설정
+    // 한번에 5개의 페이지를 표시하게 설정 (ex) << < 1 2 3 4 5 > >>
+    //                                       << < 6 7 8 9 10 > >> )
     const groupNumber = Math.ceil(page / 5);
 
     // 첫번째 페이지번호와 마지막 페이지 번호 계산

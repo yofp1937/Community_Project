@@ -5,13 +5,14 @@ const Comment = require('../../models/Comment');
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-  const { id, changenick } = req.body;
+  const { id, changenick } = req.body; // id는 접속중인 유저의 id, changenick은 변경할 닉네임
 
   try {
-    let user = await User.findOne({ id: id });
+    let user = await User.findOne({ id: id }); // 유저 id로 db에서 객체 찾기
     if (!user) { // id가 존재하지 않으면
         return res
-        .json({message: "예기치 못한 오류 발생, 다시 로그인해주세요"});
+        .status(400)
+        .send("예기치 못한 오류 발생, 다시 로그인해주세요");
     }
 
     // 작성된 댓글들 작성자도 변경해줘야함
@@ -27,11 +28,9 @@ router.post('/', async (req, res) => {
     user.nickname = changenick;
     await user.save();
 
-    res.send(true);
-
+    return res.send(true);
   } catch (error) {
-    console.error("닉네임 변경 에러: ", error);
-    res.status(500).send("Server Error");
+    return res.send(error);
   }
 });
 

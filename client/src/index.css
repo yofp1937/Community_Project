@@ -1,34 +1,31 @@
+/* 모든 문서에 적용되는 css스타일 */
 body, html {
     height: 100%;
     margin: 0;
     padding: 0;
     overflow: auto;
 }
-
 hr {
     width:80%;
     text-align: center;
 }
-
 div{
   margin: 0 auto;
   text-align: center;
 }
-
 #root {
     height: 100%;
 }
-
+/* a타입 링크들 (기본url+방문했던url #336a92 색상) */
 a:link {
   color: #336a92;
   text-decoration: none;
 }
-  
 a:visited {
   color: #336a92;
   text-decoration: none;
 }
-
+/* a태그에 마우스 올려두면 파란색, 밑줄치기 */
 a:hover {
   color: blue;
   text-decoration: underline;

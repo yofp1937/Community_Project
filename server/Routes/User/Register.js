@@ -30,12 +30,10 @@ router.post("/", async (req, res) => {
 
             // db에 User 객체 데이터 저장
             await user.save();
-            console.log(id, "님 회원가입 성공");
-            // res.send(true)를 전송해서 메인화면으로 이동시킴
-            res.send(true);
+            
+            return res.send(true);
         } catch (error) {
-            console.error("회원가입 에러: ", error.message);
-            res.status(500).send("Server Error");
+            return res.send(error);
         }
     }
 );
