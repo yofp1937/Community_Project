@@ -31,6 +31,7 @@ Client: React로 구현한 FrontEnd
     - assets: 이미지같은 자원들이 위치
     - component: 재사용 가능한 UI들이 위치
     - Pages: 각 페이지별 컴포넌트들이 위치
+
 ![image](https://github.com/yofp1937/Community_Project/assets/112924147/2f938e2a-4157-4b08-af10-6f9aa2db84ac)
 Server: NodeJS로 구현한 BackEnd
  - config: 라이브러리 설정 파일들이 위치
